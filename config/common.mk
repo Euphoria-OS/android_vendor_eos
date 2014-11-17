@@ -60,7 +60,8 @@ PRODUCT_PACKAGES += \
     AudioFX \
     CustomWallpapers \
     Eleven \
-    OTACenter
+    OTACenter \
+    Launcher3
 
 # Busybox
 #PRODUCT_PACKAGES += \
