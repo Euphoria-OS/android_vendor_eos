@@ -71,12 +71,6 @@ PRODUCT_PACKAGES += \
     Trebuchet \
     WallpaperPicker
 
-# CM Platform Library
-PRODUCT_PACKAGES += \
-    org.cyanogenmod.platform-res \
-    org.cyanogenmod.platform \
-    org.cyanogenmod.platform.xml
-
 # Busybox
 PRODUCT_PACKAGES += \
     Busybox
@@ -94,10 +88,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.root_access=0
 
-# Chromium prebuilt
-ifeq ($(PRODUCT_PREBUILT_WEBVIEWCHROMIUM),yes)
--include prebuilts/chromium/$(TARGET_DEVICE)/chromium_prebuilt.mk
-endif
+# CM Platform Library
+PRODUCT_PACKAGES += \
+    org.cyanogenmod.platform-res \
+    org.cyanogenmod.platform \
+    org.cyanogenmod.platform.xml
 
 # CM Hardware Abstraction Framework
 PRODUCT_PACKAGES += \
@@ -111,15 +106,34 @@ ifndef CM_PLATFORM_SDK_VERSION
   # the SDK are released.  It should only be incremented when the APIs for
   # the new release are frozen (so that developers don't write apps against
   # intermediate builds).
-  CM_PLATFORM_SDK_VERSION := 1
+  CM_PLATFORM_SDK_VERSION := 2
 endif
+
+ifndef CM_PLATFORM_REV
+  # For internal SDK revisions that are hotfixed/patched
+  # Reset after each CM_PLATFORM_SDK_VERSION release
+  # If you are doing a release and this is NOT 0, you are almost certainly doing it wrong
+  CM_PLATFORM_REV := 0
+endif
+
+PRODUCT_PROPERTY_OVERRIDES += \
+  ro.cm.display.version=$(CM_DISPLAY_VERSION)
 
 # CyanogenMod Platform SDK Version
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.cm.build.version.plat.sdk=$(CM_PLATFORM_SDK_VERSION)
 
+# CyanogenMod Platform Internal
+PRODUCT_PROPERTY_OVERRIDES += \
+  ro.cm.build.version.plat.rev=$(CM_PLATFORM_REV)
+
 # T-Mobile theme engine
 include vendor/eos/config/themes_common.mk
+
+# Chromium prebuilt
+ifeq ($(PRODUCT_PREBUILT_WEBVIEWCHROMIUM),yes)
+-include prebuilts/chromium/$(TARGET_DEVICE)/chromium_prebuilt.mk
+endif
 
 PRODUCT_PACKAGE_OVERLAYS += vendor/eos/overlay/common
 
