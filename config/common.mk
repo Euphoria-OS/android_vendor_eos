@@ -68,8 +68,7 @@ PRODUCT_PACKAGES += \
     LockClock \
     OTACenter \
     Profiles \
-    Trebuchet \
-    WallpaperPicker
+    Trebuchet
 
 # Busybox
 PRODUCT_PACKAGES += \
