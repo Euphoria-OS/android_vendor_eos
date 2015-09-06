@@ -15,6 +15,9 @@ on boot
     chmod 0664 /sys/block/mmcblk0/queue/scheduler
     restorecon /sys/block/mmcblk0/queue/scheduler
 
+    # Persistent properties (only created if persist exists)
+    mkdir /persist/properties 0770 system system
+
 # adb over network
 on property:service.adb.tcp.port=5555
     stop adbd
