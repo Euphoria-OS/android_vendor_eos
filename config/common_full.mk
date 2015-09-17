@@ -6,6 +6,5 @@ PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
     PhaseBeam \
-    CMSettingsProvider \
-    CMResolver
+    CMSettingsProvider
 
