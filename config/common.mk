@@ -57,7 +57,9 @@ PRODUCT_COPY_FILES += \
 
 # Extra packages
 PRODUCT_PACKAGES += \
+    AudioFX \
     CustomWallpapers \
+    Eleven \
     OTACenter
 
 # Busybox
