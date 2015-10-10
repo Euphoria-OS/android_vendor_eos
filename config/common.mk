@@ -64,8 +64,8 @@ PRODUCT_PACKAGES += \
     Launcher3
 
 # Busybox
-#PRODUCT_PACKAGES += \
-#    Busybox
+PRODUCT_PACKAGES += \
+    Busybox
 
 #PRODUCT_PACKAGES += \
 #    procmem \
