@@ -17,6 +17,6 @@ ROM_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(EOS_BUILD)-$(
 
 PRODUCT_PROPERTY_OVERRIDES += \
   BUILD_DISPLAY_ID=$(BUILD_ID) \
-  ro.eos.version=$(ROM_VERSION) \
+  ro.eos.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
   eos.ota.version=$(shell date -u +%Y%m%d) \
   ro.modversion=$(ROM_VERSION)
