@@ -61,7 +61,8 @@ PRODUCT_PACKAGES += \
     CustomWallpapers \
     Eleven \
     OTACenter \
-    Launcher3
+    Launcher3 \
+    LockClock
 
 # Busybox
 PRODUCT_PACKAGES += \
